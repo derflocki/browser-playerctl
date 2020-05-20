@@ -66,12 +66,10 @@ class PlayMusic extends MprisBase {
 
     playPause(callback) {
         console.log('PlayMusic', 'playPause', arguments)
-
-        if ($('[aria-label="Pause"]').length)
-            $('[aria-label="Pause"]').click()
-
-        if ($('[aria-label="Play"]').length)
-            $('[aria-label="Play"]').click()
+        var playPauseButton = document.querySelector('#player-bar-play-pause');
+		if(playPauseButton) {
+			playPauseButton.click();
+		}
         
         callback()
         this.update()
@@ -98,14 +96,17 @@ class PlayMusic extends MprisBase {
     }
 
     update(callback) {
-        if ($('[aria-label="Play"]').length) {
-            if ($('[aria-label="Play"]').prop('disabled')) 
-                this.media.PlaybackStatus = 'Stopped'
-            else 
-                this.media.PlaybackStatus = 'Paused'
-        } else if ($('[aria-label="Pause"]').length) {
-            this.media.PlaybackStatus = 'Playing'
-        }
+        const playPauseButton = document.querySelector('#player-bar-play-pause');
+
+		if (playPauseButton && document.querySelector('#player-bar-play-pause').classList.contains("playing")) {
+			this.media.PlaybackStatus = 'Playing'
+		} else {
+			if(playPauseButton.disabled) {
+				this.media.PlaybackStatus = 'Stopped'
+			} else {
+				this.media.PlaybackStatus = 'Paused'
+			}
+		}
 
         if ($('[aria-label="Next song"]').length && ! $('[aria-label="Next song"]').prop('disabled'))
             this.media.CanGoNext = true
