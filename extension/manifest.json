@@ -27,6 +27,11 @@
       "matches": ["*://*.music.youtube.com/*", "*://music.youtube.com/*"],
       "js": ["jquery.min.js", "lodash.js", "providers/base.js", "providers/youtube-music.js"],
       "run_at": "document_start"
+    },
+    {
+      "matches": ["https://listen.tidal.com/*"],
+      "js": ["jquery.min.js", "lodash.js", "providers/base.js", "providers/tidal.js"],
+      "run_at": "document_start"
     }
   ],
   "permissions": [
