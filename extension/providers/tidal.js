@@ -1,10 +1,10 @@
 class Tidal extends MprisBase {
 	appName = "Tidal";
-	pauseBtnSel = '#nowPlaying [data-type="button__pause"]';
-	playBtnSel = '#nowPlaying [data-type="button__play"]';
-	nextBtnSel = '#nowPlaying [data-type="button__skip-next"]';
-	prevBtnSel = '#nowPlaying [data-type="button__skip-previous"]';
-	imageUrlSel = '#nowPlaying figure img';
+	pauseBtnSel = '#footerPlayer [data-type="button__pause"]';
+	playBtnSel = '#footerPlayer [data-type="button__play"]';
+	nextBtnSel = '#footerPlayer [data-type="button__skip-next"]';
+	prevBtnSel = '#footerPlayer [data-type="button__skip-previous"]';
+	imageUrlSel = '#footerPlayer figure img';
 	subtitleTextSel = 'ytmusic-player-bar .content-info-wrapper .subtitle';
 
 	titleTextSel = '#nowPlaying [data-test=now-playing-track-title]';
